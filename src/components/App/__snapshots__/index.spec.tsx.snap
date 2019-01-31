@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App> renders properly 1`] = `
+<h1
+  className="appDiv"
+>
+  This is the main App component. Start editing from here!
+</h1>
+`;
