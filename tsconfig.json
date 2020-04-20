@@ -15,5 +15,6 @@
     "target": "es5"
   },
   "include": ["./src/**/*.*"],
+  "exclude": ["./*.config.*"],
   "files": ["src/index.d.ts"]
 }
