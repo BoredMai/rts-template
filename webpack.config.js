@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.join(__dirname, 'src', 'index.html'),
   filename: 'index.html',
-  inject: 'body'
+  inject: 'body',
 });
 
 module.exports = {
@@ -13,13 +13,13 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'index.bundle.js'
+    filename: 'index.bundle.js',
   },
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'src/components/')
+      components: path.resolve(__dirname, 'src/components/'),
     },
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -32,13 +32,14 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              camelCase: true,
-              modules: true,
-              localIdentName: '[local]__[hash:base64:5]'
-            }
+              localsConvention: 'camelCase',
+              modules: {
+                localIdentName: '[local]__[hash:base64:5]',
+              },
+            },
           },
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.(png|jp(e*)g|svg)$/,
@@ -47,12 +48,12 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8000,
-              name: 'images/[name]__[hash].[ext]'
-            }
-          }
-        ]
-      }
-    ]
+              name: 'images/[name]__[hash].[ext]',
+            },
+          },
+        ],
+      },
+    ],
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HtmlWebpackPluginConfig],
 };
